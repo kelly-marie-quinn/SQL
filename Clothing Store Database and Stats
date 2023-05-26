@@ -1,0 +1,39 @@
+--Create a clothing store database
+/**Clothes inventory:
+product
+color
+price
+size **/
+
+CREATE TABLE inventory (id INTEGER PRIMARY KEY, product TEXT, color TEXT, price INTEGER, size TEXT);
+INSERT INTO inventory VALUES (1, "tshirt", "red", 10, "xs");
+INSERT INTO inventory VALUES (2, "tshirt", "blue", 10, "m");
+INSERT INTO inventory VALUES (3, "tshirt", "black", 15, "xs");
+INSERT INTO inventory VALUES (4, "tshirt", "green", 15, "l");
+INSERT INTO inventory VALUES (5, "tshirt", "red", 10, "m");
+INSERT INTO inventory VALUES (6, "tshirt", "red", 10, "l");
+INSERT INTO inventory VALUES (7, "tshirt", "black", 15, "l");
+INSERT INTO inventory VALUES (8, "pants",  "black", 30, "xs");
+INSERT INTO inventory VALUES (9, "pants",  "black", 30, "s");
+INSERT INTO inventory VALUES (10, "pants", "black", 30, "m"); 
+INSERT INTO inventory VALUES (11, "pants", "black", 30, "l");
+INSERT INTO inventory VALUES (12, "pants", "blue", 35, "xs");
+INSERT INTO inventory VALUES (13, "pants", "blue", 35, "m");
+INSERT INTO inventory VALUES (14, "pants", "blue", 35, "l");
+INSERT INTO inventory VALUES (15, "pants", "blue", 35, "xl");
+SELECT * FROM inventory;
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg bulk item price"
+FROM store
+where section='bulk'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
